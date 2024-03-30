@@ -27,4 +27,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :own_tasks, class_name: "Task", foreign_key: "task_owner"
+  has_many :own_pets, class_name: "Pet", foreign_key: "pet_owner"
 end

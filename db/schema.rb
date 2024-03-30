@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_30_024432) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_30_035952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "task_owner_id", null: false
+    t.text "description", null: false
+    t.string "status", default: "pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_owner_id"], name: "index_tasks_on_task_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.citext "email", default: "", null: false
@@ -31,4 +40,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_30_024432) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "tasks", "users", column: "task_owner_id"
 end

@@ -19,4 +19,6 @@
 #
 class Pet < ApplicationRecord
   belongs_to :pet_owner, class_name: "User"
+  enum status: { pending: "pending", happy: "happy", sad: "sad" } 
+
 end

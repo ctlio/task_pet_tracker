@@ -19,4 +19,8 @@
 #
 class Task < ApplicationRecord
   belongs_to :task_owner, class_name: "User"
+
+  enum status: { pending: "pending", completed: "completed", failed: "failed" } 
+
+  #validates :description, presence: true
 end

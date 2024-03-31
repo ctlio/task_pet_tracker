@@ -26,6 +26,7 @@ task({ :sample_data => :environment }) do
     rand(5).times do
       create_task = user.own_tasks.create(
         description: Faker::Hobby.activity,
+        status: Task.statuses.keys.sample
       )
     end
   end

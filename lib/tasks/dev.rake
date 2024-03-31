@@ -28,8 +28,14 @@ task({ :sample_data => :environment }) do
         description: Faker::Hobby.activity,
         status: Task.statuses.keys.sample
       )
+
+      create_pet = user.own_pets.create(
+        name: Faker::Tea.variety,
+        status: Pet.statuses.keys.sample
+      )
     end
   end
   p "There are now #{Task.count} tasks."
+  p "There are not #{Pet.count} pets."
 
 end

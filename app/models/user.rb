@@ -31,7 +31,7 @@ class User < ApplicationRecord
   # has_many :completed_tasks, -> { completed }, foreign_key: "task_owner", class_name: "Task"
   # has_many :failed_tasks, -> { failed }, foreign_key: "task_owner", class_name: "Task"
 
-  has_many :own_pets, class_name: "Pet", foreign_key: "pet_owner"
+  has_many :own_pets, class_name: "Pet", foreign_key: "pet_owner_id"
  
   validates :username, presence: true, uniqueness: true
 end

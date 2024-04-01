@@ -31,7 +31,9 @@
       <h5 class="card-title"> <%= task.description%> </h5>
       <p class="card-text"> <%= task.status%> </p>
       <p class="card-text"> <%= task.created_at%> </p>
-      <a href="#" class="btn btn-danger">Go somewhere-delete task?</a>
+     <button type="button" class="btn btn-danger"> 
+      <%link_to "Destroy this task", @task, method: :delete %> Destroy task 
+    </button> 
     </div>
   <% end %>
 </div>

@@ -1,17 +1,18 @@
 <div id="<%= dom_id pet %>">
-  <p>
-    <strong>Pet owner:</strong>
-    <%= pet.pet_owner_id %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= pet.name %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= pet.status %>
-  </p>
-
-</div>
+  <div class="col">
+    <%if pet.status == "pending" %>
+      <div class="card text-bg-light">
+      <%elsif pet.status == "happy" %>
+        <div class="card text-bg-success">
+        <%else pet.status == "sad" %>
+          <div class="card text-bg-dark">
+          <%end%>
+          <div class= "card-header"> Status: <%= pet.status%> </div>
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= pet.name %></h5>
+            <p class="card-text"> a motivational quote </p>
+          </div>
+        </div>
+      </div>
+    </div>

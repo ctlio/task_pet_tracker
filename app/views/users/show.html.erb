@@ -9,54 +9,35 @@
   </div>
 </div>
 
-<h2><%= @user.username %>'s task </h2>
+<div>
+  <h2><%= @user.username %>'s task </h2>
 
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="true">In Progress</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link completed">Completed</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link failed">Failed</a>
-      </li>
-    </ul>
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <%=link_to "In progress", user_tasks_path(@user.username), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%=link_to "Completed", tasks_completed_path(@user.username), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%=link_to "Failed", tasks_failed_path(@user.username), class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+
+    <% @user.own_tasks.each do |task| %>
+      <%= render "tasks/task", task: task %>
+    <% end %>
   </div>
 
-  <% @user.own_tasks.each do |task| %>
-    <div class="card-body">
-      <h5 class="card-title"> <%= task.description%> </h5>
-      <p class="card-text"> <%= task.status%> </p>
-      <p class="card-text"> <%= task.created_at%> </p>
-     <button type="button" class="btn btn-danger"> 
-      <%link_to "Destroy this task", @task, method: :delete %> Destroy task 
-    </button> 
-    </div>
-  <% end %>
-</div>
+  <div>
+    <h2><%= @user.username %>'s pets </h2>
 
-<h2><%= @user.username %>'s pets </h2>
-
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <% @user.own_pets.each do |pet| %>
-    <div class="col">
-    <%if pet.status == "pending" %>
-      <div class="card text-bg-light">
-    <%elsif pet.status == "happy" %>
-    <div class="card text-bg-success">
-    <%else pet.status == "sad" %>
-    <div class="card text-bg-dark">
-    <%end%>
-    <div class= "card-header"> Status: <%= pet.status%> </div>
-      <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><%= pet.name %></h5>
-          <p class="card-text"> a motivational quote </p>
-        </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @user.own_pets.each do |pet| %>
+        <%= render "pets/pet", pet: pet %>
+      <% end %>
     </div>
   </div>
-  <% end %>
-</div>

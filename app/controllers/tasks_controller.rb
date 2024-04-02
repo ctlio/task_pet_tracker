@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   def show
   end
 
+
   # GET /tasks/new
   def new
     @task = Task.new

@@ -1,9 +1,16 @@
 <div id="<%= dom_id task %>">
 
-  <div class="card-body">
-    <h5 class="card-title"> <%= task.description%> </h5>
-    <p class="card-text"> <%= task.status%> </p>
-    <p class="card-text"> <%= task.created_at%> </p>
-  </div>
-
+<ul class="list-group">
+  <%if task.status == "pending"%>
+    <li class="list-group-item list-group-item-primary"> 
+  <%elsif task.status == "completed" %>
+    <li class="list-group-item list-group-item-success"> 
+  <%elsif task.status == "failed" %>
+    <li class="list-group-item list-group-item-danger">
+  <% end %> 
+    Task description: 
+    <%= task.description %> | 
+    Status: 
+    <%= task.status %>
+  </li>
 </div>

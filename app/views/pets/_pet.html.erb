@@ -4,9 +4,9 @@
       <div class="card text-bg-light">
       <%elsif pet.status == "happy" %>
         <div class="card text-bg-success">
-        <%else pet.status == "sad" %>
+        <%elsif pet.status == "sad" %>
           <div class="card text-bg-dark">
-          <%end%>
+    <%end%>
           <div class= "card-header"> Status: <%= pet.status%> </div>
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">

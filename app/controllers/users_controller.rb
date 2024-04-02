@@ -4,11 +4,21 @@ class UsersController < ApplicationController
     @user = User.find_by!(username: params.fetch(:username)) 
   end
 
-  def completed
+
+  def tasks
     @user = User.find_by!(username: params.fetch(:username)) 
   end
 
-  def failed
+  def pets
     @user = User.find_by!(username: params.fetch(:username)) 
   end
+
+  
+  #def completed
+    #@user = User.find_by!(username: params.fetch(:username)) 
+  #end
+
+  #def failed
+    #@user = User.find_by!(username: params.fetch(:username)) 
+  #end
 end

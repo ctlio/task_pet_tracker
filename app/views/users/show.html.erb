@@ -12,32 +12,17 @@
 <div>
   <h2><%= @user.username %>'s task </h2>
 
-  <div class="card text-center">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <%=link_to "In progress", user_tasks_path(@user.username), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%=link_to "Completed", tasks_completed_path(@user.username), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%=link_to "Failed", tasks_failed_path(@user.username), class: "nav-link" %>
-        </li>
-      </ul>
-    </div>
+  <% @user.own_tasks.each do |task| %>
+    <%= render "tasks/task", task: task %>
+  <% end %>
+</div>
 
-    <% @user.own_tasks.each do |task| %>
-      <%= render "tasks/task", task: task %>
+<div>
+  <h2><%= @user.username %>'s pets </h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% @user.own_pets.each do |pet| %>
+      <%= render "pets/pet", pet: pet %>
     <% end %>
   </div>
-
-  <div>
-    <h2><%= @user.username %>'s pets </h2>
-
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <% @user.own_pets.each do |pet| %>
-        <%= render "pets/pet", pet: pet %>
-      <% end %>
-    </div>
-  </div>
+</div>

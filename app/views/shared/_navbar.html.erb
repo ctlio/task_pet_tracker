@@ -36,6 +36,13 @@
           <% end %>
         </li>
         <li class="nav-item">
+          <%= link_to new_pet_path, class: "nav-link" do %>
+            <i class="fas fa-plus-circle"></i>
+
+            Add pet
+          <% end %>
+        </li>
+        <li class="nav-item">
           <%= link_to user_path(current_user.username), class: "nav-link" do %>
             <i class="fas fa-home fa-fw"></i>
 

@@ -8,10 +8,19 @@
   <%elsif task.status == "failed" %>
     <li class="list-group-item list-group-item-danger">
   <% end %> 
-    Task description: 
-    <%= task.description %> | 
-    Status: 
-    <%= task.status %>
-  </li>
-  
+    <div>
+      Task description: 
+      <%= task.description %>
+    </div>
+    <div>
+      Status: 
+      <%= task.status %>
+    </div>
+    <div>
+      <%if task.status == "pending" %>
+        <%= button_to "Mark as Completed" %>  
+      <% end %>
+    </div>
+    </li>
+</ul> 
 </div>

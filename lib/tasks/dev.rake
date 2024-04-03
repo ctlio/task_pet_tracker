@@ -21,12 +21,14 @@ task({ :sample_data => :environment }) do
   p "There are now #{User.count} users."
 
   users = User.all
+  
 
   users.each do |user|
     rand(5).times do
       create_task = user.own_tasks.create(
         description: Faker::Hobby.activity,
-        status: Task.statuses.keys.sample
+        status: Task.statuses.keys.sample,
+        due_date: Faker::Date.between(from: '2024-04-15', to: '2024-04-26')
       )
 
       create_pet = user.own_pets.create(
@@ -36,6 +38,6 @@ task({ :sample_data => :environment }) do
     end
   end
   p "There are now #{Task.count} tasks."
-  p "There are not #{Pet.count} pets."
+  p "There are now #{Pet.count} pets."
 
 end

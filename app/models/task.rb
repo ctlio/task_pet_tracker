@@ -4,6 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  description   :text             not null
+#  due_date      :datetime
 #  status        :string           default("pending")
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -19,8 +20,9 @@
 #
 class Task < ApplicationRecord
   belongs_to :task_owner, class_name: "User"
+  attribute :due_date, :datetime
 
   enum status: { pending: "pending", completed: "completed", failed: "failed" } 
 
-  #validates :description, presence: true
+  validates :description, presence: true
 end

@@ -17,6 +17,10 @@
       <%= task.status %>
     </div>
     <div>
+      Due date:
+      <%= task.due_date %>
+    </div>
+    <div>
       <%if task.status == "pending" %>
         <%= button_to "Mark as Completed" %>  
       <% end %>

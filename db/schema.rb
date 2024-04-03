@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_03_193330) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_03_212441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_193330) do
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "happiness", default: 50
     t.index ["pet_owner_id"], name: "index_pets_on_pet_owner_id"
   end
 

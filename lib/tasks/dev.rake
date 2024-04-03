@@ -33,7 +33,8 @@ task({ :sample_data => :environment }) do
 
       create_pet = user.own_pets.create(
         name: Faker::Tea.variety,
-        status: Pet.statuses.keys.sample
+        status: Pet.statuses.keys.sample,
+        happiness: random_number = rand(1..100)
       )
     end
   end

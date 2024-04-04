@@ -10,30 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_03_212441) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_30_024432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
-
-  create_table "pets", force: :cascade do |t|
-    t.bigint "pet_owner_id", null: false
-    t.string "name", null: false
-    t.string "status", default: "pending"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "happiness", default: 50
-    t.index ["pet_owner_id"], name: "index_pets_on_pet_owner_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.bigint "task_owner_id", null: false
-    t.text "description", null: false
-    t.string "status", default: "pending"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "due_date"
-    t.index ["task_owner_id"], name: "index_tasks_on_task_owner_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.citext "email", default: "", null: false
@@ -51,6 +31,4 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_212441) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "pets", "users", column: "pet_owner_id"
-  add_foreign_key "tasks", "users", column: "task_owner_id"
 end

@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: task_pet_tracker_production
-  username: task_pet_tracker
+  database: rails_template_production
+  username: rails_template
   password: <%= ENV["RAILS_TEMPLATE_DATABASE_PASSWORD"] %>

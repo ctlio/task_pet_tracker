@@ -25,13 +25,4 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :own_tasks, class_name: "Task", foreign_key: "task_owner_id"
-  # WILL add back in for Users-tasks status?:
-  # has_many :completed_tasks, -> { completed }, foreign_key: "task_owner", class_name: "Task"
-  # has_many :failed_tasks, -> { failed }, foreign_key: "task_owner", class_name: "Task"
-
-  has_many :own_pets, class_name: "Pet", foreign_key: "pet_owner_id"
- 
-  validates :username, presence: true, uniqueness: true
 end

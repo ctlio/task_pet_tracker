@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
+    Task.update_overdue_tasks_status
     @tasks = Task.all
   end
 
@@ -70,6 +71,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:task_owner_id, :description, :status)
+      params.require(:task).permit(:task_owner_id, :description, :status, :due_date)
     end
 end

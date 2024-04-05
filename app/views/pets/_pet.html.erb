@@ -1,0 +1,22 @@
+<div id="<%= dom_id pet %>">
+
+  <div class="col">
+    <%if pet.status == "neutral" %>
+      <div class="card text-bg-light">
+    <%elsif pet.status == "happy" %>
+      <div class="card text-bg-success">
+    <%elsif pet.status == "sad" %>
+      <div class="card text-bg-dark">
+    <%end%>
+          <div class= "card-header"> 
+            Status: <%= pet.status%> 
+          </div>
+          <!--<img src="..." class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h5 class="card-title">Name: <%= pet.name %> </h5>
+            <p class="card-text">Happiness: <%= pet.happiness %> </p>
+          </div>
+    </div>
+  </div>
+</div>
+  

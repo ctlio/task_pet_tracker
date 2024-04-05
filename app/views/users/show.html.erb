@@ -3,7 +3,9 @@
 </h1>
 
 <div class="card" style="width: 18rem;">
-  <%= image_tag @user.avatar_image,  class: "card-img-top"%>
+  <% if @user.avatar_image.present? %>
+    <%= image_tag @user.avatar_image,  class: "card-img-top"%>
+  <% end %>
   <div class="card-body">
     <p class="card-text"> Member since: <%= @user.created_at %> </p>
   </div>

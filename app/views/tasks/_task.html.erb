@@ -18,7 +18,7 @@
           </div>
           <div>
             Due date:
-            <%= task.due_date.strftime("%Y-%m-%d %H:%M:%S")%>
+            <%= task.due_date.strftime("%b %d, %Y %I:%M %p")%>
           </div>
           <div>
             <% if task.status == "pending" %>

@@ -14,6 +14,12 @@
 <div>
   <h2><%= @user.username %>'s task </h2>
 
+  
+  <%= button_to new_task_path, method: :get, class: "btn btn-primary" do %>
+    <i class="fa-solid fa-clipboard-list"></i>
+    Add Task
+  <% end %>
+
   <% @user.own_tasks.each do |task| %>
     <%= render "tasks/task", task: task %>
   <% end %>
@@ -21,6 +27,11 @@
 
 <div>
   <h2><%= @user.username %>'s pets </h2>
+    
+  <%= button_to new_pet_path, method: :get, class: "btn btn-primary" do %>
+    <i class="fa-solid fa-paw"></i>
+    Add Pet
+  <% end %>
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <% @user.own_pets.each do |pet| %>

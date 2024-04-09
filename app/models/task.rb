@@ -21,22 +21,21 @@
 class Task < ApplicationRecord
   belongs_to :task_owner, class_name: "User"
   attribute :due_date, :datetime
-  validates :description, presence: true
-  enum status: {pending: "pending", completed: "completed", failed: "failed" } 
+  enum status: {pending: "pending", completed: "completed", failed: "failed" }
+  after_update :update_pet_happiness, if: :status_changed? 
 
   def self.update_overdue_tasks_status
     where(status: "pending").where("due_date <= ?", Time.now).update_all(status: "failed")
   end
 
-  private
-
   def update_pet_happiness
     if status == "completed"
-      user.pets.each { |pet| pet.update(happiness: pet.happiness + 10) }
+      task_owner.pet.increment!(:happiness, 10)
     elsif status == "failed"
-      user.pets.each { |pet| pet.update(happiness: pet.happiness - 10) }
+      task_owner.pet.decrement!(:happiness, 10)
     end
   end
+  validates :description, presence: true
 end
 
  

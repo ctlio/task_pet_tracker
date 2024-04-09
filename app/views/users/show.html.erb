@@ -7,7 +7,7 @@
     <%= image_tag @user.avatar_image,  class: "card-img-top"%>
   <% end %>
   <div class="card-body">
-    <p class="card-text"> Member since: <%= @user.created_at %> </p>
+    <p class="card-text"> Member since: <%= @user.created_at.strftime("%b %d, %Y %I:%M %p") %> </p>
   </div>
 </div>
 

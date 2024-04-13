@@ -1,5 +1,5 @@
-<div>
-  <h2><%= @user.username %>'s task </h2>
+<div class = "container">
+  <!--<h2><%= @user.username %>'s task </h2>-->
 
   <% @user.own_tasks.each do |task| %>
     <%= render "tasks/task", task: task %>

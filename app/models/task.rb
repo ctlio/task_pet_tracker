@@ -27,14 +27,21 @@ class Task < ApplicationRecord
   def self.update_overdue_tasks_status
     where(status: "pending").where("due_date <= ?", Time.now).update_all(status: "failed")
   end
-
+  
   def update_pet_happiness
-    if status == "completed"
-      task_owner.pet.increment!(:happiness, 10)
-    elsif status == "failed"
-      task_owner.pet.decrement!(:happiness, 10)
+    puts "updating pet happiness"
+    task_owner.own_pets.each do |pet|
+      if status == "completed"
+        pet.increment!(:happiness, 10)
+      elsif status == "failed"
+        pet.decrement!(:happiness, 10)
+      end
+      pet.update(status: pet.status)
     end
   end
+
+
+
   validates :description, presence: true
 end
 

@@ -23,8 +23,6 @@ class Pet < ApplicationRecord
 
   attribute :happiness, :integer, default: 50
 
-  enum status: { pending: "pending", happy: "happy", sad: "sad" }
-
   def status
     if happiness >= 70
       "happy"

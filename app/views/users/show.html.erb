@@ -1,5 +1,5 @@
 <h1>
-  <%= @user.username %> Profile
+  <%= @user.username.capitalize %> Profile
 </h1>
 
 <div class="card" style="width: 18rem;">
@@ -12,7 +12,7 @@
 </div>
 
 <div>
-  <h2><%= @user.username %>'s task </h2>
+  <h2><%= @user.username.capitalize %>'s task </h2>
 
   
   <%= button_to new_task_path, method: :get, class: "btn btn-primary" do %>
@@ -26,7 +26,7 @@
 </div>
 
 <div>
-  <h2><%= @user.username %>'s pets </h2>
+  <h2><%= @user.username.capitalize %>'s pets </h2>
     
   <%= button_to new_pet_path, method: :get, class: "btn btn-primary" do %>
     <i class="fa-solid fa-paw"></i>

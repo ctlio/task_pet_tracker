@@ -1,31 +1,27 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :username,
-                required: true %>
-     <div class="field"
-    <%= f.input :avatar_image,
-                required: true,
-                input_html: { autocomplete: "new-avatar" } %>         
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<form class="row g-3" id="new_user" action="<%= registration_path(resource_name) %>" method="post">
+  <div class="col-md-6">
+    <label for="user_email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="user_email" name="user[email]" required="required" autocomplete="email">
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="col-md-6">
+    <label for="user_username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="user_username" name="user[username]" required="required">
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="col-md-6">
+    <label for="user_avatar_image" class="form-label">Avatar Image</label>
+    <input type="text" class="form-control" id="user_avatar_image" name="user[avatar_image]" required="required" autocomplete="new-avatar" placeholder="image URL here">
+  </div>
+  <div class="col-md-6">
+    <label for="user_password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="user_password" name="user[password]" required="required" autocomplete="new-password">
+  </div>
+  <div class="col-md-6">
+    <label for="user_password_confirmation" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="user_password_confirmation" name="user[password_confirmation]" required="required" autocomplete="new-password">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </div>
+</form>

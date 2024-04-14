@@ -24,7 +24,6 @@
     </li>
   </li>
 </ul>
-
 <% @user.own_tasks.each do |task| %>
   <% if task.status == "pending"%>
     <%= render "tasks/task", task: task %>

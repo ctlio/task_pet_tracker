@@ -1,20 +1,27 @@
 <h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<form class="row g-3" id="new_user_session" action="<%= session_path(resource_name) %>" method="post">
+  <div class="col-md-6">
+    <label for="user_email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="user_email" name="user[email]" required="required" autocomplete="email">
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="col-md-6">
+    <label for="user_password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="user_password" name="user[password]" required="required" autocomplete="current-password">
   </div>
-<% end %>
+  <div class="col-md-6">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="user_remember_me" name="user[remember_me]">
+      <label class="form-check-label" for="user_remember_me">
+        Remember me
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Log in</button>
+  </div>
+</form>
 
-<%= render "devise/shared/links" %>
+<div class = "container">
+ <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+</div>

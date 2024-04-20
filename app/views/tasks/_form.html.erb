@@ -11,19 +11,16 @@
     </div>
   <% end %>
 
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
+  <div class="mb-3">
     <%= form.label :due_date %>
     <%= form.datetime_field :due_date %>
   </div>
-
-
+  <div class="mb-3">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control", default: "Write task here" %>
+  </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-block" %>
   </div>
 <% end %>

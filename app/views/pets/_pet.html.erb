@@ -11,7 +11,15 @@
           <div class= "card-header"> 
             Status: <%= pet.status%> 
           </div>
-          <!--<img src="..." class="card-img-top" alt="...">-->
+          <div style="width: 15rem;">
+          <% if pet.status == "sad" %>
+            <%= image_tag "catgif2.gif", alt:"cat1", class: "cat2"%>
+          <% elsif pet.status == "neutral" %>
+            <%= image_tag "catgif4.gif", alt:"cat1", class: "cat4"%>
+          <% elsif pet.status == "happy" %>
+            <%= image_tag "catgif1.gif", alt:"cat1", class: "cat1"%>
+          <% end %>
+          </div>
           <div class="card-body">
             <h5 class="card-title">Name: <%= pet.name %> </h5>
             <p class="card-text">Happiness: <%= pet.happiness %> </p>

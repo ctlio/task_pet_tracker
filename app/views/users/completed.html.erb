@@ -29,7 +29,7 @@
 
   <h3><%= @user.username.capitalize %>'s Completed Tasks</h3>
   <% @user.own_tasks.each do |task| %>
-    <% if task.status == "competed" %>
+    <% if task.status == "completed" %>
       <%= render "tasks/task", task: task %>
     <% end %>
   <% end %>

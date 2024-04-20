@@ -32,9 +32,14 @@
       <%= render "tasks/task", task: task %>
     <% end %>
   <% end %>
-  
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <% @user.own_pets.each do |pet| %>
-    <%= render "pets/pet", pet: pet %>
-  <% end %>
+
+<div class = "container">
+ <h3><%= @user.username.capitalize %>'s Pets</h3>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% @user.own_pets.each do |pet| %>
+      <%= render "pets/pet", pet: pet %>
+    <% end %>
+  </div>
 </div>
+  

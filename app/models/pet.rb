@@ -20,7 +20,7 @@
 #
 class Pet < ApplicationRecord
   belongs_to :pet_owner, class_name: "User"
-
+  enum status: {pending: "neutral", happy: "happy", sad: "sad"}
   attribute :happiness, :integer, default: 50
 
   def status

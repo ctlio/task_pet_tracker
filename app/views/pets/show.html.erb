@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @pet %>
 
 <div>
   <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
   <%= link_to "Back to pets", pets_path %>
 
-  <%= button_to "Abandon this pet?", @pet, method: :delete, class: "btn btn-danger" %>
+  <%= button_to "Release this pet?", @pet, method: :delete, class: "btn btn-danger" %>
 </div>

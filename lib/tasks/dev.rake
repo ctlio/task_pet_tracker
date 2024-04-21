@@ -50,4 +50,4 @@ task({ :sample_data => :environment }) do
     p "There are not #{Pet.count} pets."
   
   end
-  
+end

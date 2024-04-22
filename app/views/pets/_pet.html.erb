@@ -12,23 +12,23 @@
         Status: <%= pet.status %> 
       </div>
 
-      <div style="max-width: 15rem; margin: 0 auto;">
-      <% if pet.image == "catgif1.gif"%>
-        <%= image_tag "catgif1.gif", alt:"cat1", class: "cat2", style: "max-width: 100%;" %>
-      <% elsif pet.image == "catgif2.gif"%>
-        <%= image_tag "catgif2.gif", alt:"cat2", class: "cat2", style: "max-width: 100%;" %>
-      <% elsif pet.image == "catgif3.gif"%>
-        <%= image_tag "catgif3.gif", alt:"cat3", class: "cat3", style: "max-width: 100%;" %>
-      <% elsif pet.image == "catgif4.gif"%>
-        <%= image_tag "catgif4.gif", alt:"cat4", class: "cat4", style: "max-width: 100%;" %>
-      <% elsif pet.image == "catgif5.gif"%>
-        <%= image_tag "catgif5.gif", alt:"cat5", class: "cat5", style: "max-width: 100%;" %>
-      <% end %>
-      </div>
-
       <div class="card-body">
-        <h5 class="card-title">Name: <%= pet.name %></h5>
-        <p class="card-text">Happiness: <%= pet.happiness %></p>
+        <div class="d-flex justify-content-center mb-3">
+          <% if pet.image == "catgif1.gif"%>
+            <%= image_tag "catgif1.gif", alt:"cat1", class: "cat2", style: "max-width: 100%;" %>
+          <% elsif pet.image == "catgif2.gif"%>
+            <%= image_tag "catgif2.gif", alt:"cat2", class: "cat2", style: "max-width: 100%;" %>
+          <% elsif pet.image == "catgif3.gif"%>
+            <%= image_tag "catgif3.gif", alt:"cat3", class: "cat3", style: "max-width: 100%;" %>
+          <% elsif pet.image == "catgif4.gif"%>
+            <%= image_tag "catgif4.gif", alt:"cat4", class: "cat4", style: "max-width: 100%;" %>
+          <% elsif pet.image == "catgif5.gif"%>
+            <%= image_tag "catgif5.gif", alt:"cat5", class: "cat5", style: "max-width: 100%;" %>
+          <% end %>
+        </div>
+        
+        <h5 class="card-title text-center">Name: <%= pet.name %></h5>
+        <p class="card-text text-center">Happiness: <%= pet.happiness %></p>
       </div>
       
     </div>

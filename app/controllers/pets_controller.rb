@@ -30,10 +30,11 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.pet_owner = current_user
     @pet.image = params[:pet][:image]
+    @pet.status = "neutral"
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully created." }
+        format.html { redirect_to pet_url(@pet), notice: "You got a task pet! Please start making them happy by completing tasks." }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,9 +43,15 @@ class PetsController < ApplicationController
     end
   end
 
- 
+  def update_happiness
+    @pet = Pet.find(params[:id])
+    @pet.update(happiness: new_happiness_value)
   
-
+    # Update the pet's status based on the new happiness value
+    @pet.update_status
+  end
+  
+ 
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
     respond_to do |format|

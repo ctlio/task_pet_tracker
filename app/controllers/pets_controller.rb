@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[ show edit update destroy ]
+  helper_method :get_random_image_path
 
   # GET /pets or /pets.json
   def index
@@ -19,11 +20,16 @@ class PetsController < ApplicationController
   def edit
   end
 
+  def get_random_image_path
+    images = Dir.glob(Rails.root.join('app', 'assets', 'images', '*.{jpg,jpeg,png,gif}'))
+    images.sample.split('/').last
+  end
+
   # POST /pets or /pets.json
   def create
     @pet = Pet.new(pet_params)
     @pet.pet_owner = current_user
-
+    @pet.image = params[:pet][:image]
 
     respond_to do |format|
       if @pet.save
@@ -35,6 +41,9 @@ class PetsController < ApplicationController
       end
     end
   end
+
+ 
+  
 
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
@@ -67,6 +76,6 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:pet_owner_id, :name, :status)
+      params.require(:pet).permit(:pet_owner_id, :name, :status, :image)
     end
 end

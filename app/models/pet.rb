@@ -21,11 +21,11 @@
 #
 class Pet < ApplicationRecord
   belongs_to :pet_owner, class_name: "User"
-  
+  enum status: {pending: "neutral", happy: "happy", sad: "sad"}
   attribute :happiness, :integer, default: 50
   
 
-  def update_status
+  def status
     if happiness >= 70
       "happy"
     elsif happiness >= 40

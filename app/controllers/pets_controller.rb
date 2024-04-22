@@ -30,7 +30,9 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.pet_owner = current_user
     @pet.image = params[:pet][:image]
-    @pet.status = "neutral"
+    if @pet.happiness = "50"
+      @pet.status = "neutral"
+    end
 
     respond_to do |format|
       if @pet.save
@@ -41,14 +43,6 @@ class PetsController < ApplicationController
         format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def update_happiness
-    @pet = Pet.find(params[:id])
-    @pet.update(happiness: new_happiness_value)
-  
-    # Update the pet's status based on the new happiness value
-    @pet.update_status
   end
   
  

@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def tasks
-    @user = User.find_by!(username: params.fetch(:username)) 
+    @user = User.find_by!(username: params.fetch(:username))
+    
   end
 
   def completed

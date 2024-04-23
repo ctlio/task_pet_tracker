@@ -2,13 +2,14 @@
 #
 # Table name: tasks
 #
-#  id            :bigint           not null, primary key
-#  description   :text             not null
-#  due_date      :datetime
-#  status        :string           default("pending")
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  task_owner_id :bigint           not null
+#  id                   :bigint           not null, primary key
+#  description          :text             not null
+#  due_date             :datetime
+#  has_happiness_effect :boolean
+#  status               :string           default("pending")
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  task_owner_id        :bigint           not null
 #
 # Indexes
 #
@@ -29,17 +30,16 @@ class Task < ApplicationRecord
   end
 
   def update_pet_happiness
-    puts "updating"
-    if status == "completed"
+    if status == "completed" && !has_happiness_effect
       task_owner.own_pets.each do |pet|
         pet.increment!(:happiness, 10)
-        puts "added happiness"
       end
-    elsif status == "failed"
+      update(has_happiness_effect: true)
+    elsif status == "failed" && !has_happiness_effect
       task_owner.own_pets.each do |pet|
         pet.decrement!(:happiness, 10)
-        puts "decreased happiness"
       end
+      update(has_happiness_effect: true)
     end
   end
 

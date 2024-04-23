@@ -2,7 +2,7 @@
 
   <div class="container text-center mb-3">
     <h1>
-      <u> Welcome to P.A.T.S! </u>
+      <u>  Welcome to P.A.T.S! </u>
     </h1>
   </div>
 
@@ -30,11 +30,17 @@
 
   <div class = "container text-center mb-3" >
     <%= link_to new_user_session_path, class: "nav-link" do %>
-      <i class="fa-solid fa-cat"></i> Sign in
+      <i class="fa-solid fa-cat fa-bounce"></i> 
+      <b><u>
+        Sign in
+      </b></u>
     <% end %>
 
     <%= link_to new_user_registration_path, class: "nav-link" do %>
-      <i class="fa-solid fa-dog"></i> Sign up
+      <i class="fa-solid fa-dog fa-bounce"></i> 
+      <b><u>
+        Sign up
+      </b></u>
     <% end %>
   </div>
 

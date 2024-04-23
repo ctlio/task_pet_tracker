@@ -3,7 +3,8 @@
 
 <div>
   <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
+  <%= link_to "Check out tasks list", user_tasks_path(username: current_user.username) %>
+
 
   <%= button_to "Destroy this task", @task, method: :delete, class: "btn btn-danger"  %>
 </div>

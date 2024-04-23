@@ -1,5 +1,5 @@
 <div class = "container">
-  <!--<h2><%= @user.username %>'s task </h2>-->
+  <h2><%= @user.username.capitalize %>'s task list </h2>
 
   <% @user.own_tasks.each do |task| %>
     <%= render "tasks/task", task: task %>

@@ -4,11 +4,19 @@ class PetsController < ApplicationController
 
   # GET /pets or /pets.json
   def index
-    @pets = Pet.all
+    @pets = current_user.own_pets
+    @pets.each do |pet|
+      pet.status
+    end
+    
   end
 
   # GET /pets/1 or /pets/1.json
   def show
+    @pets = current_user.own_pets
+    @pets.each do |pet|
+      pet.status
+    end
   end
 
   # GET /pets/new
@@ -30,7 +38,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.pet_owner = current_user
     @pet.image = params[:pet][:image]
-    if @pet.happiness = "50"
+    if @pet.happiness >= 40
       @pet.status = "neutral"
     end
 

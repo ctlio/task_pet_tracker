@@ -27,11 +27,11 @@ class Pet < ApplicationRecord
 
   def status
     if happiness >= 70
-      "happy"
+       "happy"
     elsif happiness >= 40
-      "neutral"
+       "neutral"
     else
-      "sad"
+       "sad"
     end
   end
 

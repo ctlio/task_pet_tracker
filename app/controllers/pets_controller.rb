@@ -30,7 +30,7 @@ class PetsController < ApplicationController
   end
   
   def get_random_image_path
-    images = Dir.glob(Rails.root.join('app', 'assets', 'images', '*.{jpg,jpeg,png,gif}'))
+    images = Dir.glob(Rails.root.join('app', 'assets', 'images', 'pets', '*.{jpg,jpeg,png,gif}'))
     images.sample.split('/').last
   end
 

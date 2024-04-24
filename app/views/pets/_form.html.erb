@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :image, value: get_random_image_path %>
 
   <div class="mb-3">
     <%= form.label :name, style: "display: block" %>
@@ -19,6 +20,6 @@
 
 
    <div>
-    <%= form.submit class: "btn btn-primary btn-block" %>
+    <%= form.submit "Welcome Task Pet!", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>

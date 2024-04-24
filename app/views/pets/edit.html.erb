@@ -1,10 +1,33 @@
 <h1>Editing pet</h1>
 
-<%= render "form", pet: @pet %>
+<%= form_with(model: @pet) do |form| %>
+  <% if @pet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+        <% @pet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+
+   <div>
+    <%= form.submit "Submit changes", class: "btn btn-primary btn-block"%>
+  </div>
+
+<% end %>
 
 <br>
 
 <div>
   <%= link_to "Show this pet", @pet %> |
-  <%= link_to "Back to pets", pets_path %>
+  <%= link_to "Back to pets", user_pets_path(username: current_user.username)%>
 </div>

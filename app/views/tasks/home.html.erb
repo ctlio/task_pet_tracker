@@ -1,6 +1,20 @@
 <body style="background-color: lightblue;">
+
+  <div class="container text-center mb-3">
+    <h1>
+      <u>  Welcome to P.A.T.S! </u>
+    </h1>
+  </div>
+
+  <div class="container text-center mb-3">
+    <h2>Pet Accountability Task Support</h2>
+  </div>
+
+  <div class="container text-center mb-3">
+    <%= image_tag "supportanimals.gif", alt: "animal1", class: "img-fluid animal1", style: "max-width: 50%;" %>
+  </div>
+
   <div class = "container">
-    <h1>Welcome to P.A.T.S!</h1>
 
     <h3>Here's the idea....</h3>
 
@@ -13,7 +27,21 @@
       if you haven't already. And start adding tasks that you want to work on to get your pet happy!
     </p>
   </div>
+
+  <div class = "container text-center mb-3" >
+    <%= link_to new_user_session_path, class: "nav-link" do %>
+      <i class="fa-solid fa-cat fa-bounce"></i> 
+      <b><u>
+        Sign in
+      </b></u>
+    <% end %>
+
+    <%= link_to new_user_registration_path, class: "nav-link" do %>
+      <i class="fa-solid fa-dog fa-bounce"></i> 
+      <b><u>
+        Sign up
+      </b></u>
+    <% end %>
+  </div>
+
 </body>
-<div class="container text-center">
-  <%= image_tag "supportanimals.gif", alt: "animal1", class: "img-fluid animal1" %>
-</div>

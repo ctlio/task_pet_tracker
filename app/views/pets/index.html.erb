@@ -1,14 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Pets</h1>
 
 <div id="pets">
   <% @pets.each do |pet| %>
     <%= render pet %>
     <p>
-      <%= link_to "Show this pet", pet %>
+    <%= button_to "Show this pet", pet, method: :get, class: "btn btn-light" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New pet", new_pet_path %>
+

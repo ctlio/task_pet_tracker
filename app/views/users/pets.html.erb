@@ -1,9 +1,12 @@
 <div>
-  <h2><%= @user.username %>'s pets </h2>
+  <h2><%= @user.username.capitalize %>'s pets </h2>
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <% @user.own_pets.each do |pet| %>
       <%= render "pets/pet", pet: pet %>
+      <p>
+        <%= button_to "Show this pet", pet, method: :get, class: "btn btn-primary" %>
+      </p>
     <% end %>
   </div>
 </div>

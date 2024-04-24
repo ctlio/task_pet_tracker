@@ -4,8 +4,9 @@
 #
 #  id           :bigint           not null, primary key
 #  happiness    :integer          default(50)
+#  image        :string
 #  name         :string           not null
-#  status       :string           default("pending")
+#  status       :string           default(NULL)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  pet_owner_id :bigint           not null
@@ -22,16 +23,18 @@ class Pet < ApplicationRecord
   belongs_to :pet_owner, class_name: "User"
   enum status: {pending: "neutral", happy: "happy", sad: "sad"}
   attribute :happiness, :integer, default: 50
+  
 
   def status
     if happiness >= 70
-      "happy"
+       "happy"
     elsif happiness >= 40
-      "neutral"
+       "neutral"
     else
-      "sad"
+       "sad"
     end
   end
 
   validates :name, presence: true
+
 end

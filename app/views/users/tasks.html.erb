@@ -3,5 +3,8 @@
 
   <% @user.own_tasks.each do |task| %>
     <%= render "tasks/task", task: task %>
+     <p>
+      <%= button_to "Show this task", task_path(task), method: :get, class: "btn btn-light" %>
+    </p>
   <% end %>
 </div>

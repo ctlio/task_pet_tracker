@@ -74,7 +74,7 @@ class PetsController < ApplicationController
     @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url, alert: "Pet was released." }
+      format.html { redirect_to root_path, alert: "Pet was released." }
       format.json { head :no_content }
     end
   end

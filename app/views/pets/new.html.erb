@@ -1,9 +1,11 @@
-<h1>New pet</h1>
-
-<%= render "form", pet: @pet %>
-
-<br>
-
-<div>
-  <%= link_to "Back to pets", user_pets_path(username: current_user.username) %>
+<div class="d-flex justify-content-center">
+  <h1>New pet</h1>
 </div>
+
+<div class="d-flex justify-content-center">
+  <%= render "form", pet: @pet %>
+</div>
+
+  <div class="container text-center mb-3">
+    <%= image_tag "pawprint.gif", alt: "animal1", class: "img-fluid animal1", style: "max-width: 50%;" %>
+  </div>

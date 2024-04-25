@@ -9,5 +9,6 @@ task({ :sample_data => :environment }) do
     User.delete_all
   end
 
+
 end
  

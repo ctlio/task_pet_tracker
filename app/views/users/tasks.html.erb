@@ -1,10 +1,10 @@
-<div class = "container">
+<div class = "container mb-3">
   <h2><%= @user.username.capitalize %>'s task list </h2>
+</div>
 
+<div class = "container">
   <% @user.own_tasks.each do |task| %>
+    <%= link_to "Show this task", task_path(task), method: :get %>
     <%= render "tasks/task", task: task %>
-     <p>
-      <%= button_to "Show this task", task_path(task), method: :get, class: "btn btn-light" %>
-    </p>
   <% end %>
 </div>

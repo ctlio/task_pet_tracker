@@ -1,35 +1,37 @@
 <div id="<%= dom_id task %>">
-  <div class="row">
-    <div class="col">
-      <ul class="list-group">
-        <% if task.status == "pending" %>
-          <li class="list-group-item list-group-item-primary">
-        <% elsif task.status == "completed" %>
-          <li class="list-group-item list-group-item-success">
-        <% elsif task.status == "failed" %>
-          <li class="list-group-item list-group-item-danger">
-        <% end %>
-        <div>
-          <b>Task description:</b> 
-          <%= task.description %>
-        </div>
-        <div>
-          <b>Status:</b> 
-          <%= task.status %>
-        </div>
-        <div>
-          <b>Due date:</b>
-          <%= task.due_date.strftime("%b %d, %Y %I:%M %p") %>
-        </div>
-        <div>
+  <div class = "container mb-3">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
           <% if task.status == "pending" %>
-            <%= form_with(model: task, local: true) do |form| %>
-              <%= form.hidden_field :status, value: "completed" %>
-              <%= form.submit "Mark as Completed", class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
+            <li class="list-group-item list-group-item-primary">
+            <% elsif task.status == "completed" %>
+              <li class="list-group-item list-group-item-success">
+              <% elsif task.status == "failed" %>
+                <li class="list-group-item list-group-item-danger">
+                <% end %>
+                <div>
+                  <b>Task description:</b>
+                  <%= task.description %>
+                </div>
+                <div>
+                  <b>Status:</b>
+                  <%= task.status %>
+                </div>
+                <div>
+                  <b>Due date:</b>
+                  <%= task.due_date.strftime("%b %d, %Y %I:%M %p") %>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                  <% if task.status == "pending" %>
+                    <%= form_with(model: task, local: true) do |form| %>
+                      <%= form.hidden_field :status, value: "completed" %>
+                      <%= form.submit "Mark as Completed", class: "btn btn-primary btn-sm" %>
+                    <% end %>
+                  <% end %>
+                <div>
+              </li>
+            </ul>
+          </div>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
+      </div>

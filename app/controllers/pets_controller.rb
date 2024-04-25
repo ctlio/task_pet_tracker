@@ -8,7 +8,6 @@ class PetsController < ApplicationController
     @pets.each do |pet|
       pet.status
     end
-    
   end
 
   # GET /pets/1 or /pets/1.json
@@ -17,6 +16,10 @@ class PetsController < ApplicationController
     @pets.each do |pet|
       pet.status
     end
+    advice_url = HTTP.get("https://api.adviceslip.com/advice")
+    advice_data = JSON.parse(advice_url).fetch("slip")
+    @advice = advice_data.fetch("advice")
+
   end
 
   # GET /pets/new
@@ -26,12 +29,11 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
-  
   end
-  
+
   def get_random_image_path
-    images = Dir.glob(Rails.root.join('app', 'assets', 'images', 'pets', '*.{jpg,jpeg,png,gif}'))
-    images.sample.split('/').last
+    images = Dir.glob(Rails.root.join("app", "assets", "images", "pets", "*.{jpg,jpeg,png,gif}"))
+    images.sample.split("/").last
   end
 
   # POST /pets or /pets.json
@@ -53,8 +55,7 @@ class PetsController < ApplicationController
       end
     end
   end
-  
- 
+
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
     respond_to do |format|
@@ -79,13 +80,14 @@ class PetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def pet_params
-      params.require(:pet).permit(:pet_owner_id, :name, :status, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def pet_params
+    params.require(:pet).permit(:pet_owner_id, :name, :status, :image)
+  end
 end

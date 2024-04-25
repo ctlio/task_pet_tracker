@@ -3,10 +3,5 @@
 <div id="pets">
   <% @pets.each do |pet| %>
     <%= render pet %>
-    <p>
-    <%= button_to "Show this pet", pet, method: :get, class: "btn btn-light" %>
-    </p>
   <% end %>
 </div>
-
-

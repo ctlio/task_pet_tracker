@@ -1,36 +1,40 @@
 <div id="<%= dom_id pet %>">
-  <div class="col">
-    <% if pet.status == "neutral" %>
-      <div class="card text-bg-light">
-    <% elsif pet.status == "happy" %>
-      <div class="card text-bg-success">
-    <% elsif pet.status == "sad" %>
-      <div class="card text-bg-dark">
-    <% end %>
+  <div class = "container mb-3">
+    <div class="col">
+      <% if pet.status == "neutral" %>
+        <div class="card text-bg-light">
+        <% elsif pet.status == "happy" %>
+          <div class="card text-bg-success">
+          <% elsif pet.status == "sad" %>
+            <div class="card text-bg-dark">
+            <% end %>
 
-      <div class="card-header"> 
-        Status: <%= pet.status %> 
-      </div>
+            <div class="card-header">
+              Status: <%= pet.status %>
+            </div>
 
-      <div class="card-body">
-        <div class="d-flex justify-content-center mb-3">
-          <% if pet.image == "catgif1.gif"%>
-            <%= image_tag "pets/catgif1.gif", alt:"cat1", class: "cat2", style: "max-width: 50%;" %>
-          <% elsif pet.image == "catgif2.gif"%>
-            <%= image_tag "pets/catgif2.gif", alt:"cat2", class: "cat2", style: "max-width: 50%;" %>
-          <% elsif pet.image == "catgif3.gif"%>
-            <%= image_tag "pets/catgif3.gif", alt:"cat3", class: "cat3", style: "max-width: 50%;" %>
-          <% elsif pet.image == "catgif4.gif"%>
-            <%= image_tag "pets/catgif4.gif", alt:"cat4", class: "cat4", style: "max-width: 50%;" %>
-          <% elsif pet.image == "catgif5.gif"%>
-            <%= image_tag "pets/catgif5.gif", alt:"cat5", class: "cat5", style: "max-width: 50%;" %>
-          <% end %>
+            <div class="card-body">
+              <div class="d-flex justify-content-center mb-3">
+                <% if pet.image == "catgif1.gif"%>
+                  <%= image_tag "pets/catgif1.gif", alt:"cat1", class: "cat2", style: "max-width: 50%;" %>
+                <% elsif pet.image == "catgif2.gif"%>
+                  <%= image_tag "pets/catgif2.gif", alt:"cat2", class: "cat2", style: "max-width: 50%;" %>
+                <% elsif pet.image == "catgif3.gif"%>
+                  <%= image_tag "pets/catgif3.gif", alt:"cat3", class: "cat3", style: "max-width: 50%;" %>
+                <% elsif pet.image == "catgif4.gif"%>
+                  <%= image_tag "pets/catgif4.gif", alt:"cat4", class: "cat4", style: "max-width: 50%;" %>
+                <% elsif pet.image == "catgif5.gif"%>
+                  <%= image_tag "pets/catgif5.gif", alt:"cat5", class: "cat5", style: "max-width: 50%;" %>
+                <% end %>
+              </div>
+
+              <h5 class="card-title text-center">Name: <%= pet.name.capitalize %></h5>
+              <p class="card-text text-center">Happiness: <%= pet.happiness %></p>
+            </div>
+              <div class="d-flex justify-content-center mb-3">
+              <%= button_to "Show this pet", pet, method: :get, class: "btn btn-primary" %>
+              </div>
+          </div>
         </div>
-        
-        <h5 class="card-title text-center">Name: <%= pet.name %></h5>
-        <p class="card-text text-center">Happiness: <%= pet.happiness %></p>
       </div>
-      
     </div>
-  </div>
-</div>

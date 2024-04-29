@@ -1,6 +1,5 @@
 desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment }) do
-
   p "creating sample data"
 
   if Rails.env.development?
@@ -9,6 +8,15 @@ task({ :sample_data => :environment }) do
     User.delete_all
   end
 
+  username = "Ken"
 
+  User.create(
+    email: "#{username}@example.com",
+    password: "password",
+    username: username.downcase,
+    avatar_image: "https://robohash.org/toe",
+    private: [true, false].sample,
+  )
+
+  
 end
- 

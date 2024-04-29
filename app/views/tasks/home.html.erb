@@ -29,21 +29,17 @@
     </p>
   </div>
 
-  <div class = "container text-center mb-3" >
-    <%= link_to new_user_session_path, class: "nav-link" do %>
-      <i class="fa-solid fa-cat fa-bounce"></i>
-      <b><u>
-          Sign in
-        </b></u>
-    <% end %>
+<div class="container text-center mb-3">
+  <%= link_to new_user_session_path, class: "nav-link", style: "font-size: 24px;" do %>
+    <i class="fa-solid fa-cat fa-bounce"></i>
+    <b><u>Sign in</u></b>
+  <% end %>
 
-    <%= link_to new_user_registration_path, class: "nav-link" do %>
-      <i class="fa-solid fa-dog fa-bounce"></i>
-      <b><u>
-          Sign up
-        </b></u>
-    <% end %>
-  </div>
+  <%= link_to new_user_registration_path, class: "nav-link", style: "font-size: 24px;" do %>
+    <i class="fa-solid fa-dog fa-bounce"></i>
+    <b><u>Sign up</u></b>
+  <% end %>
+</div>
 
   <div class="container text-center mb-3">
     <h3> Demo Video </h3>
